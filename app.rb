@@ -29,10 +29,6 @@ get('/vehicles/:id') do
   erb(:vehicle)
 end
 
-get('vehicles') do
-  erb(:vehicles)
-end
-
 get('/dealerships/:id') do
   @dealership = Dealership.find(params.fetch('id').to_i())
   erb(:dealership)

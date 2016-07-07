@@ -11,9 +11,16 @@ describe('the add dealership path', {:type => :feature}) do
     click_link('Add New Dealership')
     fill_in('name', :with => 'Happy Motors')
     click_button('Add Dealership')
-    click_link('Return to Main Page')
+    click_link('Home')
     click_link('See Dealership List')
     expect(page).to have_content('Happy Motors')
+  end
+end
+
+describe('the add vehicle path', {:type => :feature}) do
+  it('takes inputs for vehicle specs and adds vehicle to dealership') do
+    visit('/')
+    click_link('See Dealership List')
     click_link('Happy Motors')
     click_link('Add a new vehicle')
     fill_in('make', :with => 'Tesla')
@@ -23,12 +30,9 @@ describe('the add dealership path', {:type => :feature}) do
     fill_in('engine_size', :with => '44 kWh')
     fill_in('number_of_doors', :with => '4')
     click_button('Add Vehicle')
-    click_link('Return to Main Page')
+    click_link('Home')
     click_link('See Dealership List')
     click_link('Happy Motors')
     expect(page).to have_content('Tesla')
-    visit('/')
-    click_link('See Dealership List')
-    expect(page).to have_content('Happy Motors')
   end
 end
