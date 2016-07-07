@@ -24,14 +24,13 @@ post('/dealerships') do
   erb(:success)
 end
 
-get('/vehicle/new') do
-  @dealership = Dealership.find(params.fetch('id').to_i())
-  erb(:dealership_vehicles_form)
-end
-
 get('/vehicles/:id') do
   @vehicle = Vehicle.find(params.fetch('id').to_i())
   erb(:vehicle)
+end
+
+get('vehicles') do
+  erb(:vehicles)
 end
 
 get('/dealerships/:id') do
