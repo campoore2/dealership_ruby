@@ -1,7 +1,7 @@
 class Vehicle
   @@vehicles = []
 
-  attr_reader(:make, :model, :year, :color, :engine_size, :number_of_doors, :id)
+  attr_accessor(:make, :model, :year, :color, :engine_size, :number_of_doors, :id)
 
   define_method(:initialize) do |attributes|
     @make = attributes.fetch(:make)
